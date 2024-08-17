@@ -1,13 +1,13 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"main/app"
+
+	fiberlog "github.com/gofiber/fiber/v2/log"
+)
 
 func main() {
-	app := fiber.New()
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
-
-	app.Listen(":3000")
+	fiberlog.Info("Server Starting")
+	app.Start()
+	fiberlog.Info("Server Finished")	
 }
